@@ -19,4 +19,25 @@ docker run  -v <configPath>/squid.conf:/etc/squid/squid.conf:ro \
             -v /etc/localtime:/etc/localtime:ro \
             -p 3128:3128 \
             dijk039/docker-squid
+
+
+
 ```
+
+Docker Composer
+
+```
+
+version: '2'
+
+services:
+  squid:
+    image: dijk039/docker-squid
+    container_name: "squid"
+    ports:
+      - "3128:3128"
+    volumes:
+      - /var/cache/squid
+
+```
+
